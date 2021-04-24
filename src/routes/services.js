@@ -1,7 +1,7 @@
 const express = require ('express')
 const router = express.Router()
 
-const { users, writeJSON } = require('../data.js')
+const { accounts, writeJSON } = require('../data.js')
 
 
 router.get('/transfer', (req, res) => {
