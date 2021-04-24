@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const express = require('express')
-
+const data = require('./data')
 const app = express()
 
 app.set('views', path.join(__dirname, 'views'))
@@ -9,11 +9,11 @@ app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname + '/public')))
 app.use(express.urlencoded({ extended: true }));
 
-const accountData  = fs.readFileSync('src/json/accounts.json', {encoding:'utf8'})
-const accounts = JSON.parse(accountData)
-
-const userData  = fs.readFileSync('src/json/users.json', {encoding:'utf8'})
-const users = JSON.parse(userData)
+// const accountData  = fs.readFileSync('src/json/accounts.json', {encoding:'utf8'})
+// const accounts = JSON.parse(accountData)
+//
+// const userData  = fs.readFileSync('src/json/users.json', {encoding:'utf8'})
+// const users = JSON.parse(userData)
 
 app.get('/', (req, res, next) => {
   res.render('index', { title: 'Account Summary', accounts: accounts })
